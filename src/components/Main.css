@@ -1,0 +1,51 @@
+.Main{
+    margin: 0;
+    padding: 0;
+}
+.Sidebar{
+    min-height: 300px;
+    width: 30%;
+    position: relative;
+}
+.PGalary{
+    height: 550px;
+    width: 70%;
+    overflow-y: scroll;
+}
+.sProduct{
+    margin: 10px;
+    border: 2px solid black;
+    height: 200px;
+    width: 30vw;
+    /* justify-content: space-around; */
+}
+.sProduct a{
+    background-color: darkkhaki;
+}
+.sProduct h6{
+    padding: 0px;
+    margin-top: 20px;
+}
+
+.Added{
+    min-height: 250px;
+    padding: 0;
+}
+.Recommended{
+    min-height: 250px;
+    padding: 0;
+    margin-top: 30px;
+}
+
+
+.AddedP{
+    margin: 2px 0px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    text-align: center;
+    /* border: 2px solid black; */
+}
+
+.row{
+    margin: 0px 0px;
+}
