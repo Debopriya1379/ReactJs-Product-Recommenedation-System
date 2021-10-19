@@ -19,7 +19,7 @@ export default function ProductGalary(props) {
         }).then((data) => {
             console.log("Data",data)
             setProducts( data.Products)
-            console.log(products)
+            // console.log("products",products)
         }).catch((error) => {
             console.log(error)
         })

@@ -30,6 +30,7 @@
 .Added{
     min-height: 250px;
     padding: 0;
+    overflow-y: scroll;
 }
 .Recommended{
     min-height: 250px;

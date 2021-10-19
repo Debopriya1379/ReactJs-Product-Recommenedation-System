@@ -1,17 +1,28 @@
-import React from 'react'
+import { React, useContext, useEffect } from 'react'
 import './Main.css'
+import CartContext from '../context/CartContext'
 
-export default function Productbox(props) {
-    const Add = () => {
-        // e.preventDefault();
-        props.setCart(...props.cart,props.product)
+export default function Productbox({product}) {
+
+    const cart = useContext(CartContext)
+
+    function Add(product) {
+        console.log("Product Added to cart",product)
+        // cart.setcartitem(...cart.cartitem,product)
+        cart.cartitem.push(product)
+        console.log("Cart",cart.cartitem)
     }
+    useEffect(() => {
+        // cart.setcartitem(...cart.cartitem,product)
+        // console.log("crt",cart.cartitem)
+    },[]);
+
     return (
-        <div className="sProduct bg-info">
-            <h6>{props.product.Name}</h6>
-            <p>{props.product.Price}rs.</p>
-            {/* <button onClick={Add} className="btn border border-dark">+</button> */}
-            <a onChange={Add} className="btn bg-warning border border-dark">+</a>
-        </div>
+        <div className="sProduct bg-primary">
+            <h6>{product.Name}</h6>
+            <p>{product.Price}rs.</p>
+            <button onClick={()=>{Add(product)}} className="btn bg-warning border border-dark">Add To Cart</button>
+            {/* <a className="btn bg-warning border border-dark">Add To Cart</a> */}
+        </div >
     )
 }
