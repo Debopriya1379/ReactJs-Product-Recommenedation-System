@@ -1,0 +1,29 @@
+{
+  "cartProducts": [
+    {
+      "id": 122222,
+      "Name": "Dove soap",
+      "Price": 30
+    },
+    {
+      "id": 7666,
+      "Name": "Pepsi",
+      "Price": 45
+    },
+    {
+      "id": "0",
+      "Name": "SENSODYNE Sensitive Soft Toothbrush",
+      "Price": "77"
+    },
+    {
+      "id": "2",
+      "Name": "Oral-B Sensitive Whitening Extra Soft Toothbrush",
+      "Price": "110"
+    },
+    {
+      "id": "15",
+      "Name": "NIVEA Dark Spot Reduction Face Wash",
+      "Price": "146"
+    }
+  ]
+}

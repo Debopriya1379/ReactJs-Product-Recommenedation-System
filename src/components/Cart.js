@@ -1,24 +1,33 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useState, useEffect } from 'react'
 import './Main.css'
-import CartContext from '../context/CartContext'
+import axios from 'axios'
 
 
 export default function Cart(props) {
-    const cart = useContext(CartContext)
 
     const [Cart, setCart] = useState([])
 
+    async function getCartProducts(){
+        try{
+            const crtpro = await axios.get('http://localhost:3333/cartProducts')
+            setCart(crtpro.data);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
+
     useEffect(() => {
-        setCart(...Cart, cart.cartitem)
-        console.log("crt", cart.cartitem)
-    }, [cart.cartitem]);
+        getCartProducts();
+    },[]);                         //////////////////// Adding Cart to dependency array causinng executing get req. exponentailly :(
 
     return (
         <div className="Added container bg-dark border border-primary">
             <h6 className="bg-primary p-2">Cart</h6>
             <div className="row">
-                {Cart.map((childcart) => {
-                    return (<div className=" AddedP container d-flex justify-content-around" key={childcart.id}>
+                {Cart.map((childcart,key) => {
+                    return (<div className=" AddedP container d-flex justify-content-around" key={key}>
                         <p>{childcart.Name}</p>
                         <p>{childcart.Price}</p>
                     </div>)

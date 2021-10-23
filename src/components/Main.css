@@ -8,7 +8,7 @@
     position: relative;
 }
 .PGalary{
-    height: 550px;
+    height: 650px;
     width: 70%;
     overflow-y: scroll;
 }
@@ -29,6 +29,7 @@
 
 .Added{
     min-height: 250px;
+    height: 300px;
     padding: 0;
     overflow-y: scroll;
 }

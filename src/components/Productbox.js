@@ -1,21 +1,21 @@
-import { React, useContext, useEffect } from 'react'
+import { React } from 'react'
 import './Main.css'
-import CartContext from '../context/CartContext'
+import axios from 'axios'
 
 export default function Productbox({product}) {
 
-    const cart = useContext(CartContext)
-
-    function Add(product) {
+    async function Add(product) {
         console.log("Product Added to cart",product)
-        // cart.setcartitem(...cart.cartitem,product)
-        cart.cartitem.push(product)
-        console.log("Cart",cart.cartitem)
+        try{
+            await axios.post('http://localhost:3333/cartProducts',product)
+        }catch(err){
+            console.log(err)
+        }
     }
-    useEffect(() => {
-        // cart.setcartitem(...cart.cartitem,product)
-        // console.log("crt",cart.cartitem)
-    },[]);
+    // useEffect(() => {
+    //     cart.setcartitem(...cart.cartitem,product)
+    //     console.log("crt",cart.cartitem)
+    // },[]);
 
     return (
         <div className="sProduct bg-primary">
