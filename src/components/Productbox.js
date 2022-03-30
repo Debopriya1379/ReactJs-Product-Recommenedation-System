@@ -1,21 +1,16 @@
 import { React } from 'react'
 import './Main.css'
-import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../Features/CartSlice';
 
 export default function Productbox({product}) {
 
-    async function Add(product) {
-        console.log("Product Added to cart",product)
-        try{
-            await axios.post('http://localhost:3333/cartProducts',product)
-        }catch(err){
-            console.log(err)
-        }
+    const dispatch = useDispatch();
+
+    const Add = (product)=>{
+        console.log("Add", product);
+        dispatch(addToCart(product));
     }
-    // useEffect(() => {
-    //     cart.setcartitem(...cart.cartitem,product)
-    //     console.log("crt",cart.cartitem)
-    // },[]);
 
     return (
         <div className="sProduct bg-primary">

@@ -1,26 +1,11 @@
-import { React, useState, useEffect } from 'react'
+import { React  } from 'react'
 import './Main.css'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 
-export default function Cart(props) {
+export default function Cart() {
 
-    const [Cart, setCart] = useState([])
-
-    async function getCartProducts(){
-        try{
-            const crtpro = await axios.get('http://localhost:3333/cartProducts')
-            setCart(crtpro.data);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
-
-
-    useEffect(() => {
-        getCartProducts();
-    },[]);                         //////////////////// Adding Cart to dependency array causinng executing get req. exponentailly :(
+    const Cart = useSelector((state)=> state.cartItems.cartItems)
 
     return (
         <div className="Added container bg-dark border border-primary">
@@ -28,7 +13,7 @@ export default function Cart(props) {
             <div className="row">
                 {Cart.map((childcart,key) => {
                     return (<div className=" AddedP container d-flex justify-content-around" key={key}>
-                        <p>{childcart.Name}</p>
+                        <p>{childcart.Name.substr(0,20)}</p>
                         <p>{childcart.Price}</p>
                     </div>)
                 })}
