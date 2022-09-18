@@ -11,12 +11,15 @@ export default function Cart() {
         <div className="Added container bg-dark border border-primary">
             <h6 className="bg-primary p-2">Cart</h6>
             <div className="row">
-                {Cart.map((childcart,key) => {
-                    return (<div className=" AddedP container d-flex justify-content-around" key={key}>
-                        <p>{childcart.Name.substr(0,20)}</p>
-                        <p>{childcart.Price}</p>
-                    </div>)
-                })}
+                {Cart.length!==0 ? 
+                    Cart.map((childcart,key) => {
+                        return (<div className=" AddedP container d-flex justify-content-around" key={key}>
+                            <p>{childcart.Name.substr(0,20)}</p>
+                            <p>{childcart.Price}</p>
+                        </div>)
+                    }) 
+                    : <div><p>No items in the cart</p></div> 
+                }
             </div>
         </div>
     )
